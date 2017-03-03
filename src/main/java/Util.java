@@ -1,6 +1,7 @@
 import com.marklogic.client.DatabaseClient;
 import com.marklogic.client.DatabaseClientFactory;
 import com.marklogic.client.io.InputStreamHandle;
+import com.marklogic.client.util.RequestParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,5 +61,11 @@ public class Util {
         }
         LOG.debug(s);
         return s;
+    }
+
+    protected static RequestParameters getExampleRequestParams(String uri) {
+        RequestParameters params = new RequestParameters();
+        params.add("uri", uri);
+        return params;
     }
 }

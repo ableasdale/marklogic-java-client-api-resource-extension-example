@@ -19,15 +19,24 @@ public class ExampleExtensionManager extends ResourceManager {
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private static final String NAME = "example";
 
+    /**
+     * Constructor
+     *
+     * @param client
+     */
     public ExampleExtensionManager(DatabaseClient client) {
         super();
         client.init(NAME, this);
     }
 
+    /**
+     * Handle the HTTP GET
+     *
+     * @param uri
+     */
     public void doHttpGet(String uri) {
 
-        RequestParameters params = new RequestParameters();
-        params.add("uri", uri);
+        RequestParameters params = Util.getExampleRequestParams(uri);
 
         String[] mimetypes = {"application/xml", "application/json"};
         ServiceResultIterator resultItr = getServices().get(params, mimetypes);
@@ -43,24 +52,34 @@ public class ExampleExtensionManager extends ResourceManager {
     }
 
     /**
-     * Do the HTTP PUT
+     * Handle the HTTP PUT
      *
      * @param uri
      */
     public void doHttpPut(String uri) {
 
-        RequestParameters params = new RequestParameters();
-        params.add("uri", uri);
+        RequestParameters params = Util.getExampleRequestParams(uri);
 
         // doesn't work with an XML Write Handle - it complains it's not "application/xml"
         // XMLWriteHandle handle = Util.getSampleXMLFile();
 
         StringHandle handle = new StringHandle().withFormat(Format.XML).with(Util.getSampleXMLAsString());
-
-        StringHandle readHandle = new StringHandle();
-        StringHandle result = getServices().put(params, handle, readHandle);
+        StringHandle result = getServices().put(params, handle, new StringHandle());
 
         LOG.info(result.toString());
+    }
 
+    /**
+     * Handle the HTTP POST
+     *
+     * @param uri
+     */
+    public void doHttpPost(String uri) {
+
+        RequestParameters params = Util.getExampleRequestParams(uri);
+        StringHandle handle = new StringHandle().withFormat(Format.XML).with(Util.getSampleXMLAsString());
+        StringHandle result = getServices().post(params, handle, new StringHandle());
+
+        LOG.info(result.toString());
     }
 }
