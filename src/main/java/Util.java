@@ -14,7 +14,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Created by ableasdale on 03/03/2017.
+ * Utility helper class
+ *
+ * @author Alex Bleasdale
+ * @version 0.1
  */
 public class Util {
 
@@ -27,15 +30,30 @@ public class Util {
 
     private static final String SAMPLE_XML_FILENAME = "sample.xml";
 
+    /**
+     * Creates the DatabaseClient Object and returns it
+     *
+     * @return - Instantiated MarkLogic Database Client
+     */
     protected static DatabaseClient getMarkLogicClient() {
         return DatabaseClientFactory.newClient(IP_ADDR, PORT, USER, PASS, DatabaseClientFactory.Authentication.DIGEST);
 
     }
 
+    /**
+     * Convenience method for opening a file as a stream using the classloader
+     * @param fileName
+     * @return - An InputStream containing the file data
+     * @throws IOException
+     */
     protected static InputStream openStream(String fileName) throws IOException {
         return Util.class.getClassLoader().getResourceAsStream(fileName);
     }
 
+    /**
+     * Example code to get a MarkLogic Java Client API InputStreamHandle for an XML file
+     * @return - an InputStreamHandle to a sample XML file used in this example code.
+     */
     protected static InputStreamHandle getSampleXMLFile() {
         InputStream sourceStream = null;
         try {
@@ -63,6 +81,12 @@ public class Util {
         return s;
     }
 
+    /**
+     * Convenience method to access an object containing the standard RequestParameters
+     *
+     * @param uri - the URI of the document that is going to be used in this example.
+     * @return - the MarkLogic Client API RequestParameters Object
+     */
     protected static RequestParameters getExampleRequestParams(String uri) {
         RequestParameters params = new RequestParameters();
         params.add("uri", uri);

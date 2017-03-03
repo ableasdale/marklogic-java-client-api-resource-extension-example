@@ -12,7 +12,10 @@ import java.lang.invoke.MethodHandles;
 import static com.marklogic.client.extensions.ResourceServices.ServiceResultIterator;
 
 /**
- * Created by ableasdale on 01/03/2017.
+ * An Example MarkLogic Java Client API Resource Extension
+ *
+ * @author Alex Bleasdale
+ * @version 0.1
  */
 public class ExampleExtensionManager extends ResourceManager {
 
@@ -20,9 +23,9 @@ public class ExampleExtensionManager extends ResourceManager {
     private static final String NAME = "example";
 
     /**
-     * Constructor
+     * Class constructor
      *
-     * @param client
+     * @param client - the MarkLogic Database client
      */
     public ExampleExtensionManager(DatabaseClient client) {
         super();
@@ -32,7 +35,7 @@ public class ExampleExtensionManager extends ResourceManager {
     /**
      * Handle the HTTP GET
      *
-     * @param uri
+     * @param uri - the URI for the document to be accessed
      */
     public void doHttpGet(String uri) {
 
@@ -42,11 +45,11 @@ public class ExampleExtensionManager extends ResourceManager {
         ServiceResultIterator resultItr = getServices().get(params, mimetypes);
 
         LOG.debug("HTTP GET Request results:");
-        if(resultItr.hasNext()){
+        if (resultItr.hasNext()) {
             ResourceServices.ServiceResult r = resultItr.next();
             LOG.debug(String.format("\tMimetype: %s | Content Length: %d | Format %s", r.getMimetype(), r.getLength(), r.getFormat()));
             StringHandle readHandle = new StringHandle();
-            LOG.debug("\t"+r.getContent(readHandle).get());
+            LOG.debug("\t" + r.getContent(readHandle).get());
         }
         resultItr.close();
     }
@@ -54,7 +57,7 @@ public class ExampleExtensionManager extends ResourceManager {
     /**
      * Handle the HTTP PUT
      *
-     * @param uri
+     * @param uri - the URI for the document to be loaded
      */
     public void doHttpPut(String uri) {
 
@@ -72,7 +75,7 @@ public class ExampleExtensionManager extends ResourceManager {
     /**
      * Handle the HTTP POST
      *
-     * @param uri
+     * @param uri - the URI for the document to be updated
      */
     public void doHttpPost(String uri) {
 

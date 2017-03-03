@@ -7,9 +7,12 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 
 /**
- * Created by ableasdale on 01/03/2017.
+ * Can be used to interrogate MarkLogic to ensure that our example endpoint installed successfully.
+ *
+ * @author Alex Bleasdale
+ * @version 0.1
  */
-public class ListExtensions_1 {
+public class ListAvailableExtensions {
 
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 

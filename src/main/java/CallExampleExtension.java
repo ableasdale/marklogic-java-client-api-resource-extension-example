@@ -4,7 +4,10 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 
 /**
- * Created by ableasdale on 01/03/2017.
+ * Showing the full lifecycle of the custom Endpoint, from instantiating it to calling the different HTTP Methods against it.
+ *
+ * @author Alex Bleasdale
+ * @version 0.1
  */
 public class CallExampleExtension {
 
@@ -26,7 +29,6 @@ public class CallExampleExtension {
 
         LOG.info("4. Sending a GET request for the example ReST extension to read the document");
         eem.doHttpGet("/example-application/報告書.xml");
-
 
     }
 }
