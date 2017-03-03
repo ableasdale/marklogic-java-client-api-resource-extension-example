@@ -4,6 +4,8 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'application'
 
+mainClassName = 'CallExampleExtension'
+
 sourceCompatibility = 1.8
 
 repositories {
