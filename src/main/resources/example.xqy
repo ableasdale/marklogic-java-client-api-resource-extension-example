@@ -42,7 +42,15 @@ declare function example:post(
     $input   as document-node()*
 ) as document-node()*
 {
-    xdmp:log("Example: POST !")
+    (: get 'input-types' to use in content negotiation :)
+    let $input-types := map:get($context,"input-types")
+    let $uri := map:get($params, "uri")
+    let $negotiate :=
+        if ($input-types = "application/xml")
+        then (xdmp:node-insert-child(doc($uri)/node(), attribute modified { fn:current-dateTime() }))
+        else error((),"ACK",
+                "Invalid type, accepts application/xml only")
+    return document { <status>XML Document [{$uri}] Updated using an HTTP POST on {fn:current-dateTime()}</status>}
 };
 
 (: Func responding to DELETE method - must use local name 'delete'. :)
