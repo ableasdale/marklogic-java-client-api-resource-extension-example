@@ -85,4 +85,17 @@ public class ExampleExtensionManager extends ResourceManager {
 
         LOG.info(result.toString());
     }
+
+    /**
+     * Handle the HTTP DELETE
+     *
+     * @param uri - the URI for the document to be removed
+     */
+    public void doHttpDelete(String uri) {
+
+        RequestParameters params = Util.getExampleRequestParams(uri);
+        StringHandle result = getServices().delete(params, new StringHandle());
+
+        LOG.info(result.toString());
+    }
 }

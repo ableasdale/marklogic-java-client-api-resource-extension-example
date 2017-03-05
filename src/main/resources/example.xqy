@@ -17,8 +17,7 @@ declare function example:get(
     (: set 'output-types', used to generate content-type header :)
     let $output-types := map:put($context,"output-types","application/xml") 
     let $uri := map:get($params, "uri")
-    let $_ := xdmp:log($uri)
-    return fn:doc($uri) 
+    return fn:doc($uri)
 };
 
 (:~
@@ -67,5 +66,8 @@ declare function example:delete(
     $params  as map:map
 ) as document-node()?
 {
-    xdmp:log("delete - TODO: Implement")
+    (: set 'output-types', used to generate content-type header :)
+    let $output-types := map:put($context,"output-types","application/xml")
+    let $uri := map:get($params, "uri")
+    return xdmp:document-delete($uri)
 };
