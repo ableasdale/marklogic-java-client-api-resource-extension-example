@@ -33,8 +33,8 @@ public class CallExampleExtension {
         LOG.info("5. Sending a DELETE request for the example ReST extension to update the content");
         eem.doHttpDelete("/example-application/報告書.xml");
 
-        LOG.info("6. Sending a GET request for the example ReST extension to read the document");
-        eem.doHttpGet("/example-application/報告書.xml");
+//        LOG.info("6. Sending a GET request for the example ReST extension to read the document");
+//        eem.doHttpGet("/example-application/報告書.xml");
 
     }
 }
