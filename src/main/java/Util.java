@@ -42,7 +42,7 @@ public class Util {
 
     /**
      * Convenience method for opening a file as a stream using the classloader
-     * @param fileName
+     * @param fileName - the filename
      * @return - An InputStream containing the file data
      * @throws IOException
      */
@@ -77,7 +77,7 @@ public class Util {
         } catch (URISyntaxException e) {
             LOG.error("URI: Unable to open the file as a URI resource", e);
         }
-        LOG.debug(s);
+        //LOG.debug(s);
         return s;
     }
 
