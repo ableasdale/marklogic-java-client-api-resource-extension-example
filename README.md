@@ -34,38 +34,43 @@ Parallel execution is an incubating feature.
 :processResources
 :classes
 :run
-16:35:30.313 [main] DEBUG com.marklogic.client.DatabaseClientFactory - Creating new database client for server at 0.0.0.0:8000
-16:35:30.334 [main] DEBUG com.marklogic.client.impl.JerseyServices - Connecting to 0.0.0.0 at 8000 as q
-16:35:30.559 [main] INFO CallExampleExtension - 1. Sending a PUT request for the example ReST extension to load the initial document
-16:35:30.572 [main] DEBUG Util - <?xml version="1.0" encoding="UTF-8"?>
+20:23:33.190 [main] DEBUG com.marklogic.client.DatabaseClientFactory - Creating new database client for server at 0.0.0.0:8000
+20:23:33.213 [main] DEBUG com.marklogic.client.impl.JerseyServices - Connecting to 0.0.0.0 at 8000 as q
+20:23:33.438 [main] INFO CallExampleExtension - 1. Sending a PUT request for the example ReST extension to load the initial document
+20:23:33.449 [main] DEBUG Util - <?xml version="1.0" encoding="UTF-8"?>
 <item>報告書</item>
 
-16:35:30.573 [main] DEBUG com.marklogic.client.impl.JerseyServices - Putting resources/example
-16:35:30.719 [main] INFO ExampleExtensionManager - <?xml version="1.0" encoding="UTF-8"?>
-<status>XML Document /example-application/報告書.xml Loaded using an HTTP PUT on 2017-03-03T16:35:30.676897Z</status>
+20:23:33.450 [main] DEBUG com.marklogic.client.impl.JerseyServices - Putting resources/example
+20:23:33.585 [main] INFO ExampleExtensionManager - <?xml version="1.0" encoding="UTF-8"?>
+<status>XML Document [/example-application/報告書.xml] Loaded using an HTTP PUT on 2017-03-05T20:23:33.558154Z</status>
 
-16:35:30.719 [main] INFO CallExampleExtension - 2. Sending a GET request for the example ReST extension to read the document
-16:35:30.720 [main] DEBUG com.marklogic.client.impl.JerseyServices - Getting resources/example as null
-16:35:30.736 [main] DEBUG ExampleExtensionManager - HTTP GET Request results:
-16:35:30.737 [main] DEBUG ExampleExtensionManager - 	Mimetype: application/xml | Content Length: 61 | Format XML
-16:35:30.738 [main] DEBUG ExampleExtensionManager - 	<?xml version="1.0" encoding="UTF-8"?>
+20:23:33.585 [main] INFO CallExampleExtension - 2. Sending a GET request for the example ReST extension to read the document
+20:23:33.586 [main] DEBUG com.marklogic.client.impl.JerseyServices - Getting resources/example as null
+20:23:33.607 [main] DEBUG ExampleExtensionManager - HTTP GET Request results:
+20:23:33.607 [main] DEBUG ExampleExtensionManager - 	Mimetype: application/xml | Content Length: 61 | Format XML
+20:23:33.609 [main] DEBUG ExampleExtensionManager - 	<?xml version="1.0" encoding="UTF-8"?>
 <item>報告書</item>
-16:35:30.738 [main] INFO CallExampleExtension - 3. Sending a POST request for the example ReST extension to update the content
-16:35:30.738 [main] DEBUG Util - <?xml version="1.0" encoding="UTF-8"?>
+20:23:33.609 [main] INFO CallExampleExtension - 3. Sending a POST request for the example ReST extension to update the content
+20:23:33.609 [main] DEBUG Util - <?xml version="1.0" encoding="UTF-8"?>
 <item>報告書</item>
 
-16:35:30.738 [main] DEBUG com.marklogic.client.impl.JerseyServices - Posting resources/example
-16:35:30.743 [main] INFO ExampleExtensionManager - null
-16:35:30.743 [main] INFO CallExampleExtension - 4. Sending a GET request for the example ReST extension to read the document
-16:35:30.743 [main] DEBUG com.marklogic.client.impl.JerseyServices - Getting resources/example as null
-16:35:30.748 [main] DEBUG ExampleExtensionManager - HTTP GET Request results:
-16:35:30.749 [main] DEBUG ExampleExtensionManager - 	Mimetype: application/xml | Content Length: 61 | Format XML
-16:35:30.749 [main] DEBUG ExampleExtensionManager - 	<?xml version="1.0" encoding="UTF-8"?>
-<item>報告書</item>
+20:23:33.610 [main] DEBUG com.marklogic.client.impl.JerseyServices - Posting resources/example
+20:23:33.619 [main] INFO ExampleExtensionManager - <?xml version="1.0" encoding="UTF-8"?>
+<status>XML Document [/example-application/報告書.xml] Updated using an HTTP POST on 2017-03-05T20:23:33.614631Z</status>
+
+20:23:33.619 [main] INFO CallExampleExtension - 4. Sending a GET request for the example ReST extension to read the document
+20:23:33.619 [main] DEBUG com.marklogic.client.impl.JerseyServices - Getting resources/example as null
+20:23:33.625 [main] DEBUG ExampleExtensionManager - HTTP GET Request results:
+20:23:33.626 [main] DEBUG ExampleExtensionManager - 	Mimetype: application/xml | Content Length: 100 | Format XML
+20:23:33.626 [main] DEBUG ExampleExtensionManager - 	<?xml version="1.0" encoding="UTF-8"?>
+<item modified="2017-03-05T20:23:33.614631Z">報告書</item>
+20:23:33.626 [main] INFO CallExampleExtension - 5. Sending a DELETE request for the example ReST extension to update the content
+20:23:33.626 [main] DEBUG com.marklogic.client.impl.JerseyServices - Deleting resources/example
+20:23:33.638 [main] INFO ExampleExtensionManager - null
 
 BUILD SUCCESSFUL
 
-Total time: 2.587 secs
+Total time: 1.859 secs
 ```
 
 
